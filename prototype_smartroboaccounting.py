@@ -25,6 +25,8 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 class ChineseAnimalIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("ChineseAnimalIntent")(handler_input)
+        year = handler_input.request_envelope.request.intent.slots['year'].value
+        
         try:
             data = ddb.get_item(
                 TableName="ChineseAnimal",
