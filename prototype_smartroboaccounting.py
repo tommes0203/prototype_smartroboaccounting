@@ -38,7 +38,7 @@ class ChineseAnimalIntentHandler(AbstractRequestHandler):
             print(e)
             raise(e)
 
-        speech_text = "Your animal is a " + data['Item']['Animal']['S'] + '. Wanna know something else? Apparently you are ' + data['Item']['PersonalityTraits']['S']
+        speech_text = "Das gesuchte Tier ist ein " + data['Item']['Animal']['S'] + '. Möchtest du mehr wissen? Die Eigenschaften sind ' + data['Item']['PersonalityTraits']['S']
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response      
 
