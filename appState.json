@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "prototype_smartroboaccounting.py",
         "cursor": {
-          "lineNumber": 30,
-          "column": 19
+          "lineNumber": 39,
+          "column": 27
         },
         "config": {
           "runtime": "python3.8",
@@ -74,6 +74,25 @@
             "secondaryIndexes": {}
           }
         }
+      },
+      "ddbemployee": {
+        "name": "ddbemployee",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 1,
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:187876182632:table/employee",
+            "name": "employee",
+            "partitionKey": "name",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "",
+            "payPerRequest": true,
+            "mode": 1,
+            "secondaryIndexes": {}
+          }
+        }
       }
     },
     "customTemplate": {
@@ -119,7 +138,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1627287456135
+    "lastSave": 1627303677814
   },
   "VCS_STATE": {
     "provider": "GitHub",

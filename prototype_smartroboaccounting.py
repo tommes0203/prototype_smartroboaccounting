@@ -22,6 +22,8 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         handler_input.response_builder.speak("Ups there was an error, Thomas")
         return handler_input.response_builder.response
 
+# Chinese Animal Test-Intent - funktioniert
+
 class ChineseAnimalIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("ChineseAnimalIntent")(handler_input)
@@ -46,25 +48,39 @@ class ChineseAnimalIntentHandler(AbstractRequestHandler):
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response      
 
-#class getEmployeeCostCenterHandler(AbstractRequestHandler):
-#    def can_handle(self, handler_input):
-#        return is_intent_name("getEmployeeCostCenter")(handler_input)
-#        empl_name = handler_input.request_envelope.request.intent.slots['empl_name'].value
-#        
-#
-#        except BaseException as e:
-#            print(e)
-#            raise(e)
-#
-#        speech_text = "Das gesuchte Tier ist ein " + data['Item']['Animal']['S'] + '. Möchtest du mehr wissen? Die Eigenschaften sind ' + data['Item']['PersonalityTraits']['S']
-#        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
-#        return handler_input.response_builder.response      
+# Chinese Animal Test-Intent - ENDE
+
+class getEmployeeCostCenterHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        return is_intent_name("getEmployeeCostCenter")(handler_input)
+
+    def handle(self, handler_input):        
+        empl_name = handler_input.request_envelope.request.intent.slots['empl_name'].value
+
+        try:
+            data = ddb.get_item(
+                TableName="employee",
+                Key={
+                    'name': {
+                        'S': empl_name
+                    }
+                }
+            )
+        except BaseException as e:
+            print(e)
+            raise(e)
+
+
+        speech_text = data['Item']['empl_name'] + "hast die Kostenstelle" + data['Item']['costcenter'] + '. Möchtest du mehr wissen? Die Eigenschaften sind ' + data['Item']['PersonalityTraits']['S']
+        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
+        return handler_input.response_builder.response      
 
 
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
+sb.add_request_handler(getEmployeeCostCenterHandler())
 
 def handler(event, context):
     return sb.lambda_handler()(event, context)
