@@ -23,7 +23,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
         return handler_input.response_builder.response
 
 # Chinese Animal Test-Intent - funktioniert
-
+#
 class ChineseAnimalIntentHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("ChineseAnimalIntent")(handler_input)
@@ -50,15 +50,7 @@ class ChineseAnimalIntentHandler(AbstractRequestHandler):
 
 # Chinese Animal Test-Intent - ENDE
 
-class ChineseAnimalIntent_newHandler(AbstractRequestHandler):
-    def can_handle(self, handler_input):
-        return is_intent_name("ChineseAnimalIntent_new")(handler_input)
 
-    def handle(self, handler_input):
-        #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
-        speech_text = "Herzlich Willkommen beim Baum des Jahres!";
-        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
-        return handler_input.response_builder.response
 
 
 
@@ -92,7 +84,6 @@ sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
-sb.add_request_handler(EmployeeCostCenterIntentHandler())
 
 def handler(event, context):
     return sb.lambda_handler()(event, context)
