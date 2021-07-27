@@ -55,8 +55,22 @@ class ChineseAnimalIntent_newHandler(AbstractRequestHandler):
         return is_intent_name("ChineseAnimalIntent_new")(handler_input)
 
     def handle(self, handler_input):
+        empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].value
+
+        try:
+            data = ddb.get_item(
+                TableName="empl_costcenter",
+                Key={
+                    'empl_no': {
+                        'N': empl_id
+                    }
+                }
+            )
+        except BaseException as e:
+            print(e)
+            raise(e)
         #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
-        speech_text = "Willkommen beim Baum des Jahres";
+        speech_text = "Der Baum ist eine " + data['Item']['empl_name']['S'];
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 

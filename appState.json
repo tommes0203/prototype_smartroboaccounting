@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "prototype_smartroboaccounting.py",
         "cursor": {
-          "lineNumber": 59,
-          "column": 24
+          "lineNumber": 73,
+          "column": 74
         },
         "config": {
           "runtime": "python3.8",
@@ -102,6 +102,25 @@
             "secondaryIndexes": {}
           }
         }
+      },
+      "ddbemplcostcenter": {
+        "name": "ddbemplcostcenter",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 1,
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:187876182632:table/empl_costcenter",
+            "name": "empl_costcenter",
+            "partitionKey": "empl_no",
+            "partitionKeyType": "N",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "",
+            "payPerRequest": true,
+            "mode": 1,
+            "secondaryIndexes": {}
+          }
+        }
       }
     },
     "customTemplate": {
@@ -147,7 +166,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1627415108202
+    "lastSave": 1627415414843
   },
   "VCS_STATE": {
     "provider": "GitHub",
