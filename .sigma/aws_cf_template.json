@@ -93,13 +93,6 @@
                     "dynamodb:GetItem"
                   ],
                   "Resource": "arn:aws:dynamodb:us-east-1:187876182632:table/ChineseAnimal"
-                },
-                {
-                  "Effect": "Allow",
-                  "Action": [
-                    "dynamodb:GetItem"
-                  ],
-                  "Resource": "arn:aws:dynamodb:us-east-1:187876182632:table/employee"
                 }
               ]
             }

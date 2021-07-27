@@ -19,7 +19,7 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
     def handle(self, handler_input, exception):
         print(exception)
-        handler_input.response_builder.speak("Ups there was an error, Thomas")
+        handler_input.response_builder.speak("Ups, das hat nicht geklappt, Thomas")
         return handler_input.response_builder.response
 
 # Chinese Animal Test-Intent - funktioniert
@@ -50,37 +50,49 @@ class ChineseAnimalIntentHandler(AbstractRequestHandler):
 
 # Chinese Animal Test-Intent - ENDE
 
-class getEmployeeCostCenterHandler(AbstractRequestHandler):
+class ChineseAnimalIntent_newHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
-        return is_intent_name("getEmployeeCostCenter")(handler_input)
+        return is_intent_name("ChineseAnimalIntent_new")(handler_input)
 
-    def handle(self, handler_input):        
-        empl_name = handler_input.request_envelope.request.intent.slots['empl_name'].value
-
-        try:
-            data = ddb.get_item(
-                TableName="employee",
-                Key={
-                    'name': {
-                        'S': empl_name
-                    }
-                }
-            )
-        except BaseException as e:
-            print(e)
-            raise(e)
-
-
-        speech_text = data['Item']['empl_name'] + "hast die Kostenstelle" + data['Item']['costcenter'] + '. Möchtest du mehr wissen? Die Eigenschaften sind ' + data['Item']['PersonalityTraits']['S']
+    def handle(self, handler_input):
+        #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
+        speech_text = "Herzlich Willkommen beim Baum des Jahres!";
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
-        return handler_input.response_builder.response      
+        return handler_input.response_builder.response
+
+
+
+#class EmployeeCostCenterIntentHandler(AbstractRequestHandler):
+   # def can_handle(self, handler_input):
+   #     return is_intent_name("EmployeeCostCenterIntent")(handler_input)
+
+   # def handle(self, handler_input):        
+    #    mitarbeiter = handler_input.request_envelope.request.intent.slots['mitarbeiter'].value
+
+    #    try:
+    #        data = ddb.get_item(
+    #            TableName="employee",
+    #            Key={
+    #                'name': {
+   #                     'S': mitarbeiter
+    #                }
+   #             }
+   #         )
+   #     except BaseException as e:
+  #          print(e)
+  #          raise(e)
+
+
+#        "Die gesuchte Kostenstelle lautet " + data['Item']['costcenter']['S'] + '. Möchtest du mehr wissen? Der Mitarbeiter arbeitet in Unternehmen ' + data['Item']['company']['S']
+#        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
+ #       return handler_input.response_builder.response      
 
 
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
-sb.add_request_handler(getEmployeeCostCenterHandler())
+sb.add_request_handler(EmployeeCostCenterIntentHandler())
 
 def handler(event, context):
     return sb.lambda_handler()(event, context)

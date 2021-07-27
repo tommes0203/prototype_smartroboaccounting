@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "prototype_smartroboaccounting.py",
         "cursor": {
-          "lineNumber": 39,
-          "column": 27
+          "lineNumber": 65,
+          "column": 2
         },
         "config": {
           "runtime": "python3.8",
@@ -28,7 +28,16 @@
             "config": {}
           }
         ],
-        "lastUpdated": 1627285483526
+        "lastUpdated": 1627412975752,
+        "testCases": {
+          "a83b8b6c-ea76-402a-b3d5-d4ba3728d2b6": {
+            "id": "a83b8b6c-ea76-402a-b3d5-d4ba3728d2b6",
+            "name": "Test event",
+            "functionId": "c8f788d3-9747-4fd7-8aa4-9634be8252d4",
+            "event": "{\r\n\t\"version\": \"1.0\",\r\n\t\"session\": {\r\n\t\t\"new\": false,\r\n\t\t\"sessionId\": \"amzn1.echo-api.session.408ff089-f298-40f7-8e64-66cf4c3e79a7\",\r\n\t\t\"application\": {\r\n\t\t\t\"applicationId\": \"amzn1.ask.skill.6e049d31-9d78-4a8b-ace9-8d38a4773f17\"\r\n\t\t},\r\n\t\t\"user\": {\r\n\t\t\t\"userId\": \"amzn1.ask.account.AHGGCRJ7D66S6ECDRNZ7AIGBIGOKF25FSNC2WYCJODKIDOTZIX3FQ2NU75OUBWVFKPS7MPQB5CNP6TKPMOYRJYD37LGXLCYW4DCC4CRFSUJACIPUMGRW5EDG7XJX3VURUU3RB52T6JNVTONKYHX4BT7CTKP7WZYQAE5UQ2DYTOEKQFSBRP3G4MBVNQSEOMALLXUMQZZKSHPHEKI\"\r\n\t\t}\r\n\t},\r\n\t\"context\": {\r\n\t\t\"Viewports\": [\r\n\t\t\t{\r\n\t\t\t\t\"type\": \"APL\",\r\n\t\t\t\t\"id\": \"main\",\r\n\t\t\t\t\"shape\": \"RECTANGLE\",\r\n\t\t\t\t\"dpi\": 213,\r\n\t\t\t\t\"presentationType\": \"STANDARD\",\r\n\t\t\t\t\"canRotate\": false,\r\n\t\t\t\t\"configuration\": {\r\n\t\t\t\t\t\"current\": {\r\n\t\t\t\t\t\t\"mode\": \"HUB\",\r\n\t\t\t\t\t\t\"video\": {\r\n\t\t\t\t\t\t\t\"codecs\": [\r\n\t\t\t\t\t\t\t\t\"H_264_42\",\r\n\t\t\t\t\t\t\t\t\"H_264_41\"\r\n\t\t\t\t\t\t\t]\r\n\t\t\t\t\t\t},\r\n\t\t\t\t\t\t\"size\": {\r\n\t\t\t\t\t\t\t\"type\": \"DISCRETE\",\r\n\t\t\t\t\t\t\t\"pixelWidth\": 1280,\r\n\t\t\t\t\t\t\t\"pixelHeight\": 800\r\n\t\t\t\t\t\t}\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t],\r\n\t\t\"Viewport\": {\r\n\t\t\t\"experiences\": [\r\n\t\t\t\t{\r\n\t\t\t\t\t\"arcMinuteWidth\": 346,\r\n\t\t\t\t\t\"arcMinuteHeight\": 216,\r\n\t\t\t\t\t\"canRotate\": false,\r\n\t\t\t\t\t\"canResize\": false\r\n\t\t\t\t}\r\n\t\t\t],\r\n\t\t\t\"mode\": \"HUB\",\r\n\t\t\t\"shape\": \"RECTANGLE\",\r\n\t\t\t\"pixelWidth\": 1280,\r\n\t\t\t\"pixelHeight\": 800,\r\n\t\t\t\"dpi\": 213,\r\n\t\t\t\"currentPixelWidth\": 1280,\r\n\t\t\t\"currentPixelHeight\": 800,\r\n\t\t\t\"touch\": [\r\n\t\t\t\t\"SINGLE\"\r\n\t\t\t],\r\n\t\t\t\"video\": {\r\n\t\t\t\t\"codecs\": [\r\n\t\t\t\t\t\"H_264_42\",\r\n\t\t\t\t\t\"H_264_41\"\r\n\t\t\t\t]\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"Extensions\": {\r\n\t\t\t\"available\": {\r\n\t\t\t\t\"aplext:backstack:10\": {}\r\n\t\t\t}\r\n\t\t},\r\n\t\t\"System\": {\r\n\t\t\t\"application\": {\r\n\t\t\t\t\"applicationId\": \"amzn1.ask.skill.6e049d31-9d78-4a8b-ace9-8d38a4773f17\"\r\n\t\t\t},\r\n\t\t\t\"user\": {\r\n\t\t\t\t\"userId\": \"amzn1.ask.account.AHGGCRJ7D66S6ECDRNZ7AIGBIGOKF25FSNC2WYCJODKIDOTZIX3FQ2NU75OUBWVFKPS7MPQB5CNP6TKPMOYRJYD37LGXLCYW4DCC4CRFSUJACIPUMGRW5EDG7XJX3VURUU3RB52T6JNVTONKYHX4BT7CTKP7WZYQAE5UQ2DYTOEKQFSBRP3G4MBVNQSEOMALLXUMQZZKSHPHEKI\"\r\n\t\t\t},\r\n\t\t\t\"device\": {\r\n\t\t\t\t\"deviceId\": \"amzn1.ask.device.AF6P43GHQ4J54RJQ26HT7NAOSZWSEUNVQGLNNS364GWDXIMSJSHMBWP3ODIDLJIKXJXBNO5CZ6MSLHHWCRLKNRQBVKHYRP2VL76TYKMECXOTU2QGA55GJD6NCWLXOPRKCBSW4JILGKHJSAVW52QJMUHZDA4HZEEDG65DGMMGHKH3YXL3ZLGOQ\",\r\n\t\t\t\t\"supportedInterfaces\": {}\r\n\t\t\t},\r\n\t\t\t\"apiEndpoint\": \"https://api.eu.amazonalexa.com\",\r\n\t\t\t\"apiAccessToken\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjEifQ.eyJhdWQiOiJodHRwczovL2FwaS5ldS5hbWF6b25hbGV4YS5jb20iLCJpc3MiOiJBbGV4YVNraWxsS2l0Iiwic3ViIjoiYW16bjEuYXNrLnNraWxsLjZlMDQ5ZDMxLTlkNzgtNGE4Yi1hY2U5LThkMzhhNDc3M2YxNyIsImV4cCI6MTYyNzMwNDAxNCwiaWF0IjoxNjI3MzAzNzE0LCJuYmYiOjE2MjczMDM3MTQsInByaXZhdGVDbGFpbXMiOnsiY29udGV4dCI6IkFBQUFBQUFBQVFCVUNzaGdkTDFtOUlyenZ0S1ZxL1k3S2dFQUFBQUFBQUFEbHo1RllGRS8wM2cvaFNLV2FoMUNqWHFuL2ZIQ1loM0o5cEJyZ2dpb0R2S2ZDSktVN21HN2lyZVpOLzFyaUd3RWhVWVlLNzMyR0xRNnBycW1mTUtHOEpBWVBNRWh2Ylo2TWFaQmdTOXVkVnlrY3A2NmtXdW1mMFl3eUpZUHowOGpzYis0bUdBN2JNcHFFWUgwSUQwTFd5aDZGR0o5OXZZTXVLMmg1YVdaVy9Da1NPbDVISm5LQmtmaDluMWxWMUNmYVA5THpySERMZVU0cS9WWTBhZnBZcjNrdnhUTDgzZGhxbHBHSlNvekt1aktDK0hLZjZqZzBjKzJRVSszYjVEVzljbnB6K2ZPSmNiNDNMNmhJY0FVcjg2SWpTZDRQZmJlWlNXaElTVlk2SjJSdFV0dXowcUNuajl3R2tnQmNnam9MV3pJZEM3d0xKd3p0Z0JIWEUvMytWdFZRZlFTcENNbHlqeEw5RzJXdS82RWxVSWYzM2pGVDF3TVA1alYvQWFVTm5ZMktxYnVqOXhtIiwiY29uc2VudFRva2VuIjpudWxsLCJkZXZpY2VJZCI6ImFtem4xLmFzay5kZXZpY2UuQUY2UDQzR0hRNEo1NFJKUTI2SFQ3TkFPU1pXU0VVTlZRR0xOTlMzNjRHV0RYSU1TSlNITUJXUDNPRElETEpJS1hKWEJOTzVDWjZNU0xISFdDUkxLTlJRQlZLSFlSUDJWTDc2VFlLTUVDWE9UVTJRR0E1NUdKRDZOQ1dMWE9QUktDQlNXNEpJTEdLSEpTQVZXNTJRSk1VSFpEQTRIWkVFREc2NURHTU1HSEtIM1lYTDNaTEdPUSIsInVzZXJJZCI6ImFtem4xLmFzay5hY2NvdW50LkFIR0dDUko3RDY2UzZFQ0RSTlo3QUlHQklHT0tGMjVGU05DMldZQ0pPREtJRE9UWklYM0ZRMk5VNzVPVUJXVkZLUFM3TVBRQjVDTlA2VEtQTU9ZUkpZRDM3TEdYTENZVzREQ0M0Q1JGU1VKQUNJUFVNR1JXNUVERzdYSlgzVlVSVVUzUkI1MlQ2Sk5WVE9OS1lIWDRCVDdDVEtQN1daWVFBRTVVUTJEWVRPRUtRRlNCUlAzRzRNQlZOUVNFT01BTExYVU1RWlpLU0hQSEVLSSJ9fQ.XfA7jSVc79vuMvdSg8_RLVxRi683SWEOL5ePyB6N-aeeUjZ90cROx9uvSUIecPVscD9e1TgzVFamDwQdn9M0DiXXITtjNo4cPDIcO0m8MyrSNEIJ-5lTwlPe2KFEOSart55Lk95DdoGSH8gfnkoXv31pjOd530hUanNSg6aJFprVeFdQumXTx4ZO0G3fIMhN37e-1cC30WQinjcuK4LrndmRpfFmZ_gTxeBPd3SpDpIbX_Artp5g8lp_90Fd642VsSJmUtUO-eITiFcSNmKU2Uf-xa9hqjgqIUxEyGjUmsiDL0RnDCWLKVc9k0YOa58oLawf3_0AvHnXwP8arJ-b4A\"\r\n\t\t}\r\n\t},\r\n\t\"request\": {\r\n\t\t\"type\": \"IntentRequest\",\r\n\t\t\"requestId\": \"amzn1.echo-api.request.fbafcdd4-9fd6-421a-b9cd-6b4e87358a1f\",\r\n\t\t\"locale\": \"de-DE\",\r\n\t\t\"timestamp\": \"2021-07-26T12:48:34Z\",\r\n\t\t\"intent\": {\r\n\t\t\t\"name\": \"getEmployeeCostCenter\",\r\n\t\t\t\"confirmationStatus\": \"NONE\",\r\n\t\t\t\"slots\": {\r\n\t\t\t\t\"empl_name\": {\r\n\t\t\t\t\t\"name\": \"empl_name\",\r\n\t\t\t\t\t\"value\": \"thomas lindner\",\r\n\t\t\t\t\t\"confirmationStatus\": \"NONE\",\r\n\t\t\t\t\t\"source\": \"USER\",\r\n\t\t\t\t\t\"slotValue\": {\r\n\t\t\t\t\t\t\"type\": \"Simple\",\r\n\t\t\t\t\t\t\"value\": \"thomas lindner\"\r\n\t\t\t\t\t}\r\n\t\t\t\t}\r\n\t\t\t}\r\n\t\t}\r\n\t}\r\n}",
+            "eventTemplate": "hello-world"
+          }
+        }
       },
       "addd281e-d8fe-499f-8d78-7b12786915db": {
         "id": "addd281e-d8fe-499f-8d78-7b12786915db",
@@ -138,7 +147,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1627303677814
+    "lastSave": 1627413067290
   },
   "VCS_STATE": {
     "provider": "GitHub",
