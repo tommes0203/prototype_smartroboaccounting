@@ -50,12 +50,13 @@ class ChineseAnimalIntentHandler(AbstractRequestHandler):
 
 # Chinese Animal Test-Intent - ENDE
 
-class ChineseAnimalIntent_newHandler(AbstractRequestHandler):
+class getEmployeeCostCenterHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
-        return is_intent_name("ChineseAnimalIntent_new")(handler_input)
+        return is_intent_name("getEmployeeCostCenter")(handler_input)
 
     def handle(self, handler_input):
-        empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].value
+        empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].resolutions.resolutions_per_authority[0].values[0].value.id
+#        empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].value
 
         try:
             data = ddb.get_item(
@@ -106,7 +107,7 @@ sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
-sb.add_request_handler(ChineseAnimalIntent_newHandler())
+sb.add_request_handler(getEmployeeCostCenterHandler())
 
 def handler(event, context):
     return sb.lambda_handler()(event, context)
