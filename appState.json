@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "prototype_smartroboaccounting.py",
         "cursor": {
-          "lineNumber": 74,
-          "column": 64
+          "lineNumber": 77,
+          "column": 58
         },
         "config": {
           "runtime": "python3.8",
@@ -28,7 +28,7 @@
             "config": {}
           }
         ],
-        "lastUpdated": 1627591866101,
+        "lastUpdated": 1627592079463,
         "testCases": {
           "a83b8b6c-ea76-402a-b3d5-d4ba3728d2b6": {
             "id": "a83b8b6c-ea76-402a-b3d5-d4ba3728d2b6",
@@ -166,7 +166,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1627592037255
+    "lastSave": 1627596680764
   },
   "VCS_STATE": {
     "provider": "GitHub",

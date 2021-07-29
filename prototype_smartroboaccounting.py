@@ -56,13 +56,14 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
 
     def handle(self, handler_input):
         empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].resolutions.resolutions_per_authority[0].values[0].value.id
-#        empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].value
+#         empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].value
+
 
         try:
             data = ddb.get_item(
                 TableName="empl_costcenter",
                 Key={
-                    'uuid': {
+                    'empl_no': {
                         'N': empl_id
                     }
                 }
@@ -70,8 +71,10 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
         except BaseException as e:
             print(e)
             raise(e)
+
+
         #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
-        speech_text = "Der Baum ist eine " + data['Item']['emplname']['S'];
+        speech_text = data['Item']['empl_name']['S'] + " hat die Kostenstelle" + data['Item']['empl_costcenter']['S'] + '. Möchtest du mehr wissen? Die Kostenstelle heißt ' + data['Item']['empl_costcenter_name']['S'];
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 
@@ -80,7 +83,6 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
 #class EmployeeCostCenterIntentHandler(AbstractRequestHandler):
    # def can_handle(self, handler_input):
    #     return is_intent_name("EmployeeCostCenterIntent")(handler_input)
-
    # def handle(self, handler_input):        
     #    mitarbeiter = handler_input.request_envelope.request.intent.slots['mitarbeiter'].value
 
