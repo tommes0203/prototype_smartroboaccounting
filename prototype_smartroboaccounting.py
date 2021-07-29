@@ -62,7 +62,7 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
             data = ddb.get_item(
                 TableName="empl_costcenter",
                 Key={
-                    'empl_no': {
+                    'uuid': {
                         'N': empl_id
                     }
                 }
@@ -71,7 +71,7 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
             print(e)
             raise(e)
         #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
-        speech_text = "Der Baum ist eine " + data['Item']['empl_name']['S'];
+        speech_text = "Der Baum ist eine " + data['Item']['emplname']['S'];
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 
