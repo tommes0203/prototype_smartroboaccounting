@@ -99,7 +99,7 @@
                   "Action": [
                     "dynamodb:GetItem"
                   ],
-                  "Resource": "arn:aws:dynamodb:us-east-1:187876182632:table/empl_costcenter"
+                  "Resource": "arn:aws:dynamodb:us-east-1:187876182632:table/smart_empl_costcenter"
                 }
               ]
             }
