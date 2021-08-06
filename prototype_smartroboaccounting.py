@@ -76,33 +76,6 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 
-
-
-#class EmployeeCostCenterIntentHandler(AbstractRequestHandler):
-   # def can_handle(self, handler_input):
-   #     return is_intent_name("EmployeeCostCenterIntent")(handler_input)
-   # def handle(self, handler_input):        
-    #    mitarbeiter = handler_input.request_envelope.request.intent.slots['mitarbeiter'].value
-
-    #    try:
-    #        data = ddb.get_item(
-    #            TableName="employee",
-    #            Key={
-    #                'name': {
-   #                     'S': mitarbeiter
-    #                }
-   #             }
-   #         )
-   #     except BaseException as e:
-  #          print(e)
-  #          raise(e)
-
-
-#        "Die gesuchte Kostenstelle lautet " + data['Item']['costcenter']['S'] + '. Möchtest du mehr wissen? Der Mitarbeiter arbeitet in Unternehmen ' + data['Item']['company']['S']
-#        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
- #       return handler_input.response_builder.response      
-
-
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
