@@ -72,7 +72,7 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
             raise(e)
 
         #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
-        speech_text = data['Item']['empl_name']['S'] + " hat die Kostenstelle" + data['Item']['empl_costcenter_id']['S'] + '. Möchtest du mehr wissen? Die Kostenstelle heißt ' + data['Item']['empl_costcenter_name']['S'];
+        speech_text = data['Item']['empl_name']['S'] + " hat die Kostenstelle" + data['Item']['empl_costcenter_id']['S'] + '. Möchtest du mehr wissen? Die Kostenstelle heißt ' + data['Item']['empl_costcenter_name']['S']+ '. ' + data['Item']['empl_name']['S'] + 'arbeitet für die' + data['Item']['empl_company_name']['S'] + 'am Standort ' + data['Item']['empl_location_name']['S'] + '.';
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 
