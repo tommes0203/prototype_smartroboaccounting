@@ -56,7 +56,7 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
         return is_intent_name("getEmployeeCostCenter")(handler_input)
 
     def handle(self, handler_input):
-        empl_no = handler_input.request_envelope.request.intent.slots['intent_year'].resolutions.resolutions_per_authority[0].values[0].value.id
+        empl_no = handler_input.request_envelope.request.intent.slots['intent_costcenter'].resolutions.resolutions_per_authority[0].values[0].value.id
 #         empl_id = handler_input.request_envelope.request.intent.slots['intent_year'].value
         try:
             data = ddb.get_item(
