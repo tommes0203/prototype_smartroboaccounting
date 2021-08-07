@@ -11,8 +11,8 @@
         "isRemovable": true,
         "filePath": "prototype_smartroboaccounting.py",
         "cursor": {
-          "lineNumber": 59,
-          "column": 89
+          "lineNumber": 131,
+          "column": 141
         },
         "config": {
           "runtime": "python3.8",
@@ -140,6 +140,25 @@
             "secondaryIndexes": {}
           }
         }
+      },
+      "ddbsmartsuppliervalue": {
+        "name": "ddbsmartsuppliervalue",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 1,
+          "table": {
+            "arn": "arn:aws:dynamodb:us-east-1:187876182632:table/smart_supplier_value",
+            "name": "smart_supplier_value",
+            "partitionKey": "suppl_id",
+            "partitionKeyType": "N",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "",
+            "payPerRequest": true,
+            "mode": 1,
+            "secondaryIndexes": {}
+          }
+        }
       }
     },
     "customTemplate": {
@@ -185,7 +204,7 @@
     "platform": "AWS",
     "language": "python",
     "platformRegions": {},
-    "lastSave": 1628348314002
+    "lastSave": 1628349591374
   },
   "VCS_STATE": {
     "provider": "GitHub",
