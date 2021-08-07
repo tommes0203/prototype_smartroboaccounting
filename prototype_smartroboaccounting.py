@@ -50,7 +50,7 @@ class ChineseAnimalIntentHandler(AbstractRequestHandler):
 
 # Chinese Animal Test-Intent - ENDE
 
-
+# employee Cost Center - WORKING
 class getEmployeeCostCenterHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("getEmployeeCostCenter")(handler_input)
@@ -76,11 +76,42 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 
+# employee Cost Center - ENDE
+
+
+# employee Location - START
+
+class getEmployeeLocation(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        return is_intent_name("getEmployeeLocation")(handler_input)
+    
+    def handle(self, handler_input):
+        empl_no = handler_input.request_envelope.request.intent.slots['intent_location'].resolutions.resolutions_per_authority[0].values[0].value.id        
+        
+        try:
+            data = ddb.get_item(
+                TableName="smart_empl_costcenter",
+                Key={
+                    'empl_id': {
+                        'N': empl_no
+                    }
+                }
+            )
+        except BaseException as e:
+            print(e)
+            raise(e)
+    
+        speech_text = data['Item']['empl_name']['S'] + " arbeitet für die ' + data['Item']['empl_company_name']['S'] + ' am Standort ' + data['Item']['empl_location_name']['S'] + '.';
+        handler_input.response_builder.speak(speech_text).set_should_end_session(False)
+        return handler_input.response_builder.response
+
+
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
 sb.add_request_handler(getEmployeeCostCenterHandler())
+sb.add_request_handler(getEmployeeLocationHandler())
 
 def handler(event, context):
     return sb.lambda_handler()(event, context)
