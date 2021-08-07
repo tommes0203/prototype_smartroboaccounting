@@ -72,16 +72,14 @@ class getEmployeeCostCenterHandler(AbstractRequestHandler):
             raise(e)
 
         #slotValue = handler_input.request_envelope.request.intent.slots['slotName'].value
-        speech_text = data['Item']['empl_name']['S'] + " hat die Kostenstelle" + data['Item']['empl_costcenter_id']['S'] + '. Möchtest du mehr wissen? Die Kostenstelle heißt ' + data['Item']['empl_costcenter_name']['S']+ '. ' + data['Item']['empl_name']['S'] + 'arbeitet für die' + data['Item']['empl_company_name']['S'] + 'am Standort ' + data['Item']['empl_location_name']['S'] + '.';
+        speech_text = data['Item']['empl_name']['S'] + " hat die Kostenstelle " + data['Item']['empl_costcenter_id']['S'] + ". Die Kostenstelle heißt " + data['Item']['empl_costcenter_name']['S']+ ". ";
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
 
 # employee Cost Center - ENDE
 
-
-# employee Location - START
-
-class getEmployeeLocation(AbstractRequestHandler):
+# employee Location - WORKING
+class getEmployeeLocationHandler(AbstractRequestHandler):
     def can_handle(self, handler_input):
         return is_intent_name("getEmployeeLocation")(handler_input)
     
@@ -101,9 +99,14 @@ class getEmployeeLocation(AbstractRequestHandler):
             print(e)
             raise(e)
     
-        speech_text = data['Item']['empl_name']['S'] + " arbeitet für die ' + data['Item']['empl_company_name']['S'] + ' am Standort ' + data['Item']['empl_location_name']['S'] + '.';
+        speech_text = data['Item']['empl_name']['S'] + " arbeitet für die " + data['Item']['empl_company_name']['S'] + ' am Standort ' + data['Item']['empl_location_name']['S'] + '.';
         handler_input.response_builder.speak(speech_text).set_should_end_session(False)
         return handler_input.response_builder.response
+
+# employee Location - ENDE
+
+
+
 
 
 sb = SkillBuilder()
