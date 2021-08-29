@@ -10,7 +10,7 @@ class LaunchRequestHandler(AbstractRequestHandler):
         return is_request_type("LaunchRequest")(handler_input)
 
     def handle(self, handler_input):
-        handler_input.response_builder.speak("Herzlich Willkommen ").set_should_end_session(False)
+        handler_input.response_builder.speak("Herzlich Willkommen beim Smart Robo Accounting!").set_should_end_session(False)
         return handler_input.response_builder.response    
 
 class CatchAllExceptionHandler(AbstractExceptionHandler):
@@ -20,6 +20,15 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
     def handle(self, handler_input, exception):
         print(exception)
         handler_input.response_builder.speak("Ups, das hat nicht geklappt, Thomas")
+        return handler_input.response_builder.response
+
+class FallbackIntentHandler(AbstractRequestHandler):
+    def can_handle(self, handler_input):
+        return is_intent_name("AMAZON.FallbackIntent")(handler_input)
+
+    def handle(self, handler_input):
+        speech_text = 'Smart Robo Accounting kann dir dabei nicht helfen. Ich kann dir helfen, die Kostenstelle eines Mitarbeiters oder das Sachkonto eines Lieferanten zu finden. Was kann ich noch für dich tun? '
+        handler_input.response_builder.speak(speech_text).set_should_end_session(True) # set to true for Cancel or Stop intents etc
         return handler_input.response_builder.response
 
 # Chinese Animal Test-Intent - funktioniert
@@ -165,6 +174,7 @@ class getSupplierCostCenterHandler(AbstractRequestHandler):
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
+sb.add_exception_handler(FallbackIntentHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
 sb.add_request_handler(getEmployeeCostCenterHandler())
 sb.add_request_handler(getEmployeeLocationHandler())
