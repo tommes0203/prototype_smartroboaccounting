@@ -27,10 +27,15 @@ class FallbackIntentHandler(AbstractRequestHandler):
         return is_intent_name("AMAZON.FallbackIntent")(handler_input)
 
     def handle(self, handler_input):
-        speech_text = 'Smart Robo Accounting kann dir dabei nicht helfen. Ich kann dir helfen, die Kostenstelle eines Mitarbeiters oder das Sachkonto eines Lieferanten zu finden. Was kann ich noch für dich tun? '
-        handler_input.response_builder.speak(speech_text).set_should_end_session(True) # set to true for Cancel or Stop intents etc
+        # type: (HandlerInput) -> Response
+        #logger.info("In FallbackIntentHandler")
+        speech = ("Smart Robo Accounting kann dir dabei nicht helfen. Ich kann dir helfen"
+                  "die Kostenstelle eines Mitarbeiters oder "
+                  "das Sachkonto eines Lieferanten zu finden")
+        reprompt = "Was kann ich noch für dich tun?"
+        handler_input.response_builder.speak(speech).ask(reprompt)
         return handler_input.response_builder.response
-
+        
 # Chinese Animal Test-Intent - funktioniert
 #
 class ChineseAnimalIntentHandler(AbstractRequestHandler):
@@ -174,7 +179,7 @@ class getSupplierCostCenterHandler(AbstractRequestHandler):
 sb = SkillBuilder()
 sb.add_request_handler(LaunchRequestHandler())
 sb.add_exception_handler(CatchAllExceptionHandler())
-sb.add_exception_handler(FallbackIntentHandler())
+sb.add_request_handler(FallbackIntentHandler())
 sb.add_request_handler(ChineseAnimalIntentHandler())
 sb.add_request_handler(getEmployeeCostCenterHandler())
 sb.add_request_handler(getEmployeeLocationHandler())
